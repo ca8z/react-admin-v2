@@ -96,7 +96,7 @@ const Sidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/user.png`}
+                  src={`../../assets/user copy.png`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -110,7 +110,7 @@ const Sidebar = () => {
                   Abdullah Tarik
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  SE Fancy Admin
+                  SE Final Boss
                 </Typography>
               </Box>
             </Box>
