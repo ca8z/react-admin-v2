@@ -1,0 +1,16 @@
+{
+    "faq": {
+      "title": "FAQ",
+      "subtitle": "Frequently Asked Questions Page",
+      "question1": "An Important Question",
+      "answer1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+      "question2": "Another Important Question",
+      "answer2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+      "question3": "Your Favorite Question",
+      "answer3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+      "question4": "Some Random Question",
+      "answer4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+      "question5": "The Final Question",
+      "answer5": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
+    }
+  }
