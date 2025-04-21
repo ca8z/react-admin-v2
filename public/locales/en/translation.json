@@ -79,7 +79,56 @@
     "bar": {
       "title": "Bar Chart",
       "subtitle": "Simple Bar Chart"
+    },
+    "pie": {
+      "title": "Pie Chart",
+      "subtitle": "Simple Pie Chart"
+    },
+    "line": {
+      "title": "Line Chart",
+      "subtitle": "Simple Line Chart"
+    },
+    "geography": {
+      "title": "Geography Chart",
+      "subtitle": "Simple Geography Chart"
+    },
+    "dashboard": {
+      "title": "DASHBOARD",
+      "subtitle": "Welcome to your dashboard",
+      "button": "Download Reports",
+      "emailsSent": "Emails Sent",
+      "sales": "Sales Obtained",
+      "newClients": "New Clients",
+      "trafficReceived": "Traffic Received",
+      "revenueGenerated": "Revenue Generated",
+      "recentTransactions": "Recent Transactions",
+      "campaign": "Campaign",
+      "campaignRevenue": "$48,352 revenue generated",
+      "campaignSubtitle": "Includes extra misc expenditures and costs",
+      "salesQuantity": "Sales Quantity",
+      "geoTraffic": "Geography Based Traffic"
+    },
+    "sidebar": {
+      "logo": "ADMINIS",
+      "role": "SE Final Boss",
+      "dashboard": "Dashboard",
+      "data": "Data",
+      "manageTeam": "Manage Team",
+      "contactsInfo": "Contacts Information",
+      "invoices": "Invoices Balances",
+      "pages": "Pages",
+      "profileForm": "Profile Form",
+      "calendar": "Calendar",
+      "faq": "FAQ Page",
+      "charts": "Charts",
+      "barChart": "Bar Chart",
+      "pieChart": "Pie Chart",
+      "lineChart": "Line Chart",
+      "geoChart": "Geography Chart"
     }
+  
+
+    
 
 
   }

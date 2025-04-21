@@ -80,7 +80,54 @@
   "bar": {
     "title": "مخطط عمودي",
     "subtitle": "مخطط عمودي بسيط"
+  },
+  "pie": {
+    "title": "مخطط دائري",
+    "subtitle": "مخطط دائري بسيط"
+  },
+  "line": {
+    "title": "مخطط خطي",
+    "subtitle": "مخطط خطي بسيط"
+  },
+  "geography": {
+    "title": "الجغرافيا",
+    "subtitle": "مخطط جغرافي بسيط"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "subtitle": "مرحباً بك في لوحة التحكم",
+    "button": "تحميل التقارير",
+    "emailsSent": "الرسائل المرسلة",
+    "sales": "المبيعات المحققة",
+    "newClients": "عملاء جدد",
+    "trafficReceived": "الزيارات المستلمة",
+    "revenueGenerated": "الإيرادات المحققة",
+    "recentTransactions": "المعاملات الأخيرة",
+    "campaign": "الحملة",
+    "campaignRevenue": "48,352$ إيرادات",
+    "campaignSubtitle": "يشمل المصاريف والتكاليف الإضافية",
+    "salesQuantity": "كمية المبيعات",
+    "geoTraffic": "الزيارات حسب الموقع الجغرافي"
+  },
+  "sidebar": {
+    "logo": "الإدارة",
+    "role": "المدير النهائي",
+    "dashboard": "لوحة التحكم",
+    "data": "البيانات",
+    "manageTeam": "إدارة الفريق",
+    "contactsInfo": "معلومات الاتصال",
+    "invoices": "أرصدة الفواتير",
+    "pages": "الصفحات",
+    "profileForm": "نموذج الملف الشخصي",
+    "calendar": "التقويم",
+    "faq": "صفحة الأسئلة",
+    "charts": "المخططات",
+    "barChart": "مخطط عمودي",
+    "pieChart": "مخطط دائري",
+    "lineChart": "مخطط خطي",
+    "geoChart": "مخطط جغرافي"
   }
+
 
 
 
