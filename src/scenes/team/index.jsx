@@ -6,39 +6,51 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
+import { useTranslation } from "react-i18next";
 
 const Team = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.language === 'ar';
+
   const columns = [
-    { field: "id", headerName: "ID" },
+    { field: "id", headerName: t("team.id"), headerAlign: "center", align: "center" },
     {
       field: "name",
-      headerName: "Name",
+      headerName: t("team.name"),
       flex: 1,
       cellClassName: "name-column--cell",
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "age",
-      headerName: "Age",
+      headerName: t("team.age"),
       type: "number",
-      headerAlign: "left",
-      align: "left",
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "phone",
-      headerName: "Phone Number",
+      headerName: t("team.phone"),
       flex: 1,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "email",
-      headerName: "Email",
+      headerName: t("team.email"),
       flex: 1,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "accessLevel",
-      headerName: "Access Level",
+      headerName: t("team.accessLevel"),
       flex: 1,
+      headerAlign: "center",
+      align: "center",
       renderCell: ({ row: { access } }) => {
         return (
           <Box
@@ -47,6 +59,7 @@ const Team = () => {
             p="5px"
             display="flex"
             justifyContent="center"
+            alignItems="center"
             backgroundColor={
               access === "admin"
                 ? colors.greenAccent[600]
@@ -60,7 +73,7 @@ const Team = () => {
             {access === "manager" && <SecurityOutlinedIcon />}
             {access === "user" && <LockOpenOutlinedIcon />}
             <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-              {access}
+              {t(`team.access.${access}`)}
             </Typography>
           </Box>
         );
@@ -69,8 +82,9 @@ const Team = () => {
   ];
 
   return (
-    <Box m="20px">
-      <Header title="TEAM" subtitle="Managing the Team Members" />
+    <Box m="20px" dir={isRtl ? "rtl" : "ltr"} sx={{ textAlign: isRtl ? "right" : "left" }}>
+      <Header title="team.title" subtitle="team.subtitle" />
+
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -80,6 +94,9 @@ const Team = () => {
           },
           "& .MuiDataGrid-cell": {
             borderBottom: "none",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           },
           "& .name-column--cell": {
             color: colors.greenAccent[300],
@@ -87,6 +104,10 @@ const Team = () => {
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: colors.blueAccent[700],
             borderBottom: "none",
+          },
+          "& .MuiDataGrid-columnHeader": {
+            display: "flex",
+            justifyContent: "center",
           },
           "& .MuiDataGrid-virtualScroller": {
             backgroundColor: colors.primary[400],

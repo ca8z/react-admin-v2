@@ -1,62 +1,77 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
-import { useTheme } from "@mui/material";
+import { useTheme as useMuiTheme } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const Contacts = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+  const muiTheme = useMuiTheme();
+  const colors = tokens(muiTheme.palette.mode);
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.language === 'ar';
 
   const columns = [
-    { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrarId", headerName: "Registrar ID" },
+    { field: "id", headerName: t("contacts.id"), flex: 0.5, headerAlign: "center", align: "center" },
+    { field: "registrarId", headerName: t("contacts.registrarId"), headerAlign: "center", align: "center" },
     {
       field: "name",
-      headerName: "Name",
+      headerName: t("contacts.name"),
       flex: 1,
       cellClassName: "name-column--cell",
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "age",
-      headerName: "Age",
+      headerName: t("contacts.age"),
       type: "number",
-      headerAlign: "left",
-      align: "left",
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "phone",
-      headerName: "Phone Number",
+      headerName: t("contacts.phone"),
       flex: 1,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "email",
-      headerName: "Email",
+      headerName: t("contacts.email"),
       flex: 1,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "address",
-      headerName: "Address",
+      headerName: t("contacts.address"),
       flex: 1,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "city",
-      headerName: "City",
+      headerName: t("contacts.city"),
       flex: 1,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "zipCode",
-      headerName: "Zip Code",
+      headerName: t("contacts.zipCode"),
       flex: 1,
+      headerAlign: "center",
+      align: "center",
     },
   ];
 
   return (
-    <Box m="20px">
+    <Box m="20px" dir={isRtl ? 'rtl' : 'ltr'} sx={{ textAlign: isRtl ? 'right' : 'left' }}>
       <Header
-        title="CONTACTS"
-        subtitle="List of Contacts for Future Reference"
+        title={t("contacts.title")}
+        subtitle={t("contacts.subtitle")}
       />
       <Box
         m="40px 0 0 0"
@@ -67,6 +82,9 @@ const Contacts = () => {
           },
           "& .MuiDataGrid-cell": {
             borderBottom: "none",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           },
           "& .name-column--cell": {
             color: colors.greenAccent[300],
@@ -74,6 +92,10 @@ const Contacts = () => {
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: colors.blueAccent[700],
             borderBottom: "none",
+          },
+          "& .MuiDataGrid-columnHeader": {
+            display: "flex",
+            justifyContent: "center",
           },
           "& .MuiDataGrid-virtualScroller": {
             backgroundColor: colors.primary[400],

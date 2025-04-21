@@ -3,39 +3,47 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
+import { useTranslation } from "react-i18next";
 
 const Form = () => {
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.language === 'ar';
   const isNonMobile = useMediaQuery("(min-width:600px)");
+
+  const phoneRegExp = /^05\d{8}$/;
+
+  const checkoutSchema = yup.object().shape({
+    firstName: yup.string().required(t('form.errors.required')),
+    lastName: yup.string().required(t('form.errors.required')),
+    email: yup.string().email(t('form.errors.invalidEmail')).required(t('form.errors.required')),
+    contact: yup
+      .string()
+      .matches(phoneRegExp, t('form.errors.invalidPhone'))
+      .required(t('form.errors.required')),
+    address1: yup.string().required(t('form.errors.required')),
+    address2: yup.string().required(t('form.errors.required')),
+  });
+
+  const initialValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    contact: "",
+    address1: "",
+    address2: "",
+  };
 
   const handleFormSubmit = (values) => {
     console.log(values);
   };
 
-  const phoneRegExp =
- /^05\d{8}$/;
-const checkoutSchema = yup.object().shape({
-  firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
-  email: yup.string().email("invalid email").required("required"),
-  contact: yup
-    .string()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .required("required"),
-  address1: yup.string().required("required"),
-  address2: yup.string().required("required"),
-});
-const initialValues = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  contact: "",
-  address1: "",
-  address2: "",
-};
-
   return (
-    <Box m="20px">
-      <Header title="CREATE USER" subtitle="Create a New User Profile" />
+    <Box
+      m="20px"
+      dir={isRtl ? 'rtl' : 'ltr'}
+      sx={{ textAlign: isRtl ? 'right' : 'left' }}
+    >
+      <Header title={t('form.title')} subtitle={t('form.subtitle')} />
 
       <Formik
         onSubmit={handleFormSubmit}
@@ -63,7 +71,7 @@ const initialValues = {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="First Name"
+                label={t('form.fields.firstName')}
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.firstName}
@@ -76,7 +84,7 @@ const initialValues = {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Last Name"
+                label={t('form.fields.lastName')}
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.lastName}
@@ -89,7 +97,7 @@ const initialValues = {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Email"
+                label={t('form.fields.email')}
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.email}
@@ -102,7 +110,7 @@ const initialValues = {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Contact Number"
+                label={t('form.fields.contact')}
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.contact}
@@ -115,7 +123,7 @@ const initialValues = {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 1"
+                label={t('form.fields.address1')}
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.address1}
@@ -128,7 +136,7 @@ const initialValues = {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 2"
+                label={t('form.fields.address2')}
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.address2}
@@ -140,7 +148,7 @@ const initialValues = {
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
-                Create New User
+                {t('form.button')}
               </Button>
             </Box>
           </form>
@@ -149,7 +157,5 @@ const initialValues = {
     </Box>
   );
 };
-
-
 
 export default Form;

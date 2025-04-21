@@ -14,14 +14,17 @@ import {
 } from "@mui/material";
 import Header from "../../components/Header";
 import { tokens } from "../../theme";
+import { useTranslation } from "react-i18next";
 
 const Calendar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.language === "ar";
   const [currentEvents, setCurrentEvents] = useState([]);
 
   const handleDateClick = (selected) => {
-    const title = prompt("Please enter a new title for your event");
+    const title = prompt(t("calendar.promptTitle"));
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
 
@@ -39,7 +42,7 @@ const Calendar = () => {
   const handleEventClick = (selected) => {
     if (
       window.confirm(
-        `Are you sure you want to delete the event '${selected.event.title}'`
+        t("calendar.confirmDelete", { title: selected.event.title })
       )
     ) {
       selected.event.remove();
@@ -47,8 +50,12 @@ const Calendar = () => {
   };
 
   return (
-    <Box m="20px">
-      <Header title="Calendar" subtitle="Full Calendar Interactive Page" />
+    <Box
+      m="20px"
+      dir={isRtl ? "rtl" : "ltr"}
+      sx={{ textAlign: isRtl ? "right" : "left" }}
+    >
+      <Header title="calendar.title" subtitle="calendar.subtitle" />
 
       <Box display="flex" justifyContent="space-between">
         {/* CALENDAR SIDEBAR */}
@@ -58,7 +65,7 @@ const Calendar = () => {
           p="15px"
           borderRadius="4px"
         >
-          <Typography variant="h5">Events</Typography>
+          <Typography variant="h5">{t("calendar.events")}</Typography>
           <List>
             {currentEvents.map((event) => (
               <ListItem
@@ -78,7 +85,6 @@ const Calendar = () => {
                         month: "short",
                         day: "numeric",
                       })}
-                      
                     </Typography>
                   }
                 />
@@ -111,16 +117,8 @@ const Calendar = () => {
             eventClick={handleEventClick}
             eventsSet={(events) => setCurrentEvents(events)}
             initialEvents={[
-              {
-                id: "12315",
-                title: "All-day event",
-                date: "2025-03-29",
-              },
-              {
-                id: "5123",
-                title: "Timed event",
-                date: "2025-09-28",
-              },
+              { id: "12315", title: "All-day event", date: "2025-03-29" },
+              { id: "5123", title: "Timed event", date: "2025-09-28" },
             ]}
           />
         </Box>
