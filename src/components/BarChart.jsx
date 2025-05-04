@@ -8,6 +8,13 @@ const BarChart = ({ isDashboard = false }) => {
   const colors = tokens(theme.palette.mode);
 
   return (
+    <div dir="ltr"
+    style={{
+      direction: "ltr",
+      width: "100%",
+      height: isDashboard ? "260px" : "700px", 
+
+    }}>
     <ResponsiveBar
       data={data}
       theme={{
@@ -124,6 +131,7 @@ const BarChart = ({ isDashboard = false }) => {
         return e.id + ": " + e.formattedValue + " in country: " + e.indexValue;
       }}
     />
+     </div>
   );
 };
 

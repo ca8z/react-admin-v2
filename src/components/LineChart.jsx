@@ -8,6 +8,13 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   const colors = tokens(theme.palette.mode);
 
   return (
+    <div dir="ltr"
+    style={{
+      direction: "ltr",
+      width: "100%",
+      height: isDashboard ? "260px" : "700px", 
+
+    }}>
     <ResponsiveLine
       data={data}
       theme={{
@@ -111,6 +118,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         },
       ]}
     />
+    </div>
   );
 };
 

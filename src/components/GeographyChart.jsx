@@ -8,6 +8,13 @@ const GeographyChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
+    <div dir="ltr"
+    style={{
+      direction: "ltr",
+      width: "100%",
+      height: isDashboard ? "200px" : "710px", 
+
+    }}>
     <ResponsiveChoropleth
       data={data}
       theme={{
@@ -79,6 +86,7 @@ const GeographyChart = ({ isDashboard = false }) => {
           : undefined
       }
     />
+    </div>
   );
 };
 
