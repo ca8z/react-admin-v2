@@ -24,7 +24,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <Suspense fallback="loading">
-      <BrowserRouter>
+    <BrowserRouter basename="/react-admin-v2">
         <AppWrapper />
       </BrowserRouter>
     </Suspense>
